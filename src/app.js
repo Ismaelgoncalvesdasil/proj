@@ -1,5 +1,5 @@
 // import { openDb } from './configDB.js';
-import { createTable } from './controler/entradas.js';
+import  { createTable,insertEntradas  } from './controler/entradas.js';
 
 import express from 'express';
 const app = express();
@@ -12,10 +12,14 @@ app.get('/entradas', function(req, res){
 })
 
 app.post('/entradas', function(req, res){
-  console.log(req.body)
+  insertEntradas(req.body)
   res.json({
     "statucCode":200
 })
+})
+
+app.put('/entradas', function(req, res){
+
 })
 
 app.listen(3000, ()=> console.log("api"))
